@@ -1,0 +1,1 @@
+M98 P"0:/macros/Filament/load" F"PLA" T220 ;Use filament load logic for PLA with temperature of 220

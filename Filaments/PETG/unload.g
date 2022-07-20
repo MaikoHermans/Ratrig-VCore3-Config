@@ -1,0 +1,1 @@
+M98 P"0:/macros/Filament/unload" F"PETG" T245 ;Use filament load logic for PETG with temperature of 245

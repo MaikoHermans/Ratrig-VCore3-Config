@@ -1,0 +1,1 @@
+M98 P"0:/macros/Filament/load" F"ASA" T250 ;Use filament load logic for ASA with temperature of 250

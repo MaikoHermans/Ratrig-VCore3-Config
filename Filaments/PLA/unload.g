@@ -1,0 +1,1 @@
+M98 P"0:/macros/Filament/unload" F"PLA" T220 ;Use filament unload logic for PLA with temperature of 220
