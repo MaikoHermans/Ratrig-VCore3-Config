@@ -1,6 +1,6 @@
 ; filament specific config; this file will run whenever the job file calls M703
 
-M302 S210 R210         ; do not allow extrusion(s) below 230 or retraction(r) below 230
+M302 S260 R260         ; do not allow extrusion(s) below 290 or retraction(r) below 290
 M207 S0.40 F2100 T2100 ; set h/w retract values for G10/G11 command
-M290 S0.01             ; babystep the head up 0.00 mm
+M290 S0.02             ; babystep the head up 0.02 mm
 M572 D0 S0.03          ; set pressure advance

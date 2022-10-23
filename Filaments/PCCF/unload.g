@@ -1,0 +1,1 @@
+M98 P"0:/macros/Filament/unload" F"PCCF" T290 ;Use filament load logic for PCCF with temperature of 290

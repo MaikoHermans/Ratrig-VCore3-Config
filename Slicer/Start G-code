@@ -1,0 +1,7 @@
+M104 S150                                   													; pre heat hotend to no-ooze temp, no wait
+M190 S[first_layer_bed_temperature]      														; heat bed to setting and wait
+G29                                         													; mesh bed leveling
+M98 P"0:/macros/Printing/setCompensation" 														; check if compensation was set correctly otherwise use latest heatmap
+G1 X250 Y10 Z100 F7200.0                    													; move to good position for nozzle cleaning and check
+M109 S{first_layer_temperature[initial_extruder]+extruder_temperature_offset[initial_extruder]} ; heat hotend and wait
+M98 P"0:/macros/Printing/primeNozzle"  															; prime the nozzle

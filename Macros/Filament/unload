@@ -2,17 +2,18 @@ var unloadingStartDetailText = "Unloading " ^ {param.F} 	; The text that's displ
 var retractingDetailText = "Retracting " ^ {param.F}		; The text that's displayed as detail during the retracting
 var temperature = {param.T}									; The tempature that needs to be used for unloading
 
-M291 P"Please wait while the nozzle is being heated up" R{var.unloadingStartDetailText} S0
-M302 P0  				; disable cold extrusion to be sure
-G10 S{var.temperature} 	; set current tool temperature to param.T
-M116     				; wait for the temperatures to be reached
-M291	 				; hide the message
+M291 P"Please wait while the nozzle is being heated up" R{var.unloadingStartDetailText} S1 T0
+M302 P0  					; disable cold extrusion to be sure
+M568 S{var.temperature} A2 	; set current tool temperature to param.T and make sure the heater state is set to "on"
+M116     					; wait for the temperatures to be reached
+M292	 					; hide the message
 
-while heat.heaters[1].current < {var.temperature} ;Make sure the heater is at the set temperature before moving on
+if heat.heaters[1].current < {var.temperature} - 5 ;Make sure the heater is at the set temperature
   echo "Not heated yet"
+  M99		; Cancel the macro
 ; end loop
 
-M291 P"Retracting filament..." R{var.retractingDetailText} S0
+M291 P"Retracting filament..." R{var.retractingDetailText} S1 T0
 M83           ; place extruder in relative mode
 G1 E-5 F3600  ; extract filament to cold end area
 G4 P3000      ; wait for three seconds
